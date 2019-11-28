@@ -2,7 +2,11 @@
   "name": "lobo-t",
   "version": "0.1.0",
   "license": "MIT",
-  "author": "Ingar Almklov",
+  "description": "A simple library for type-safe translations",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leile/lobo-t.git"
+  },
   "main": "dist/index.js",
   "module": "dist/lobo-t.esm.js",
   "typings": "dist/index.d.ts",
