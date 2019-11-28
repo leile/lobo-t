@@ -5,9 +5,9 @@
 ## Installation
 
 ```sh
-$ npm i lobo-t
+$ npm i @leile/lobo-t
 # or
-$ yarn add lobo-t
+$ yarn add @leile/lobo-t
 ```
 
 ## Usage
