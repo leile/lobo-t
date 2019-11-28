@@ -1,4 +1,4 @@
-import initLobot from '../../.';
+import { initLobot } from '../../.';
 
 export enum Language {
   Norwegian = 'nb',

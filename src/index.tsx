@@ -22,7 +22,7 @@ export type TFunc<Lang extends StandardEnum<KeyType>> = <U>(
 
 // ---
 
-function init<Language extends StandardEnum<KeyType>>(
+export function initLobot<Language extends StandardEnum<KeyType>>(
   defaultLanguage: ValueOf<Language>
 ) {
   const LanguageContext = React.createContext(defaultLanguage);
@@ -41,5 +41,3 @@ function init<Language extends StandardEnum<KeyType>>(
     useTranslation,
   };
 }
-
-export default init;
