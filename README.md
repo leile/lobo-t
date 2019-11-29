@@ -170,4 +170,4 @@ In the second example, can you tell at a glance whether this wil render with the
 - You don't use TypeScript
 - You don't like the API (but if you have any suggestions on how to improve it, discuss it with us!)
 - You need support for many languages - the structure of your translation objects might become messy
-- You don't like superheroes that can regenerate from a single cell and clames to know 17,897 different languages from across the galaxy ([Lobo](<https://en.wikipedia.org/wiki/Lobo_(DC_Comics)>))
+- You don't like superheroes that can regenerate from a single cell and claims to know 17,897 different languages from across the galaxy ([Lobo](<https://en.wikipedia.org/wiki/Lobo_(DC_Comics)>))
