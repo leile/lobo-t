@@ -1,6 +1,6 @@
 {
   "name": "@leile/lobo-t",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "description": "A simple library for type-safe translations",
   "repository": {
