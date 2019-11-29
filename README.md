@@ -40,22 +40,22 @@ export const useTranslation = lobot.useTranslation;
 ```
 
 ```tsx
-// App.tsx
+// index.tsx
 import { LanguageProvider, Language } from './i18n';
-import MyComponent from './MyComponent';
+import App from './App';
 
 // You decide how to detect/store the active language.
 // In this example, we get it as a prop.
 // When it changes, components using the useTranslation hook will re-render with the correct language
 export default (props: { activeLanguage: Language }) => (
   <LanguageProvider value={props.activeLanguage}>
-    <MyComponent />
+    <App />
   </LanguageProvider>
 );
 ```
 
 ```tsx
-// MyComponent.tsx
+// App.tsx
 import { useTranslation } from './i18n';
 
 // Text resources must have a key for each language you support
@@ -96,21 +96,23 @@ export default () => {
 ## Why?
 
 After using other translation libraries for quite some time we realized that we didn't really like them.
-They worked worked, but there were some things that irked us. For example:
+They worked, but there were some things that irked us. For example:
 
-- When using other tools you usually store translations in JSON files in separate folders per language. This makes the physical distance between translations too large. In our experience this often lead to texts in different languages communicating different things to users, because they were not written at the same time.
+- Some tools store translations in JSON files in separate folders per language. This makes the physical distance between translations too large. In our experience this often lead to texts in different languages communicating different things to users, because they were not written at the same time.
 - Accessing text resources by calling a function with a string that coincidentally should correspond to a path in a JSON object is brittle and makes refactoring hard
 - String interpolation is brittle when not type-checked. Having `{{somevariablename}}` in strings and passing objects with properties that _should_ match whatever you wrote in the translation file is an error waiting to happen.
+- Having styling or more complex contents in text resources is often very complex and requires parsing and/or third-party tools
 
 So we sat down and came up with a list of what we wanted.
 For context, most of our applications are written using [next.js](https://nextjs.org/), all of them in TypeScript, and at the moment we support two languages.
+Since we use [next.js](https://nextjs.org/) we get code splitting out of the box, so we don't really need our internationalization tool to have complex lazy-loading features.
 Additionally, we, the developers, are the ones writing the translations.
 
 ## Our list of requirements:
 
 ### Type-checked
 
-- Trying to translate a resource that doesn't exist should not be an issue
+- Trying to translate a resource that doesn't exist should be a compile-time error
 - The compiler should tell you when you're missing translations for one or more of the languages you support
 
 ### Text resources should be able to live close to where they are used
@@ -167,4 +169,5 @@ In the second example, can you tell at a glance whether this wil render with the
 - The developers are not the ones writing the translations
 - You don't use TypeScript
 - You don't like the API (but if you have any suggestions on how to improve it, discuss it with us!)
+- You need support for many languages - the structure of your translation objects might become messy
 - You don't like superheroes
